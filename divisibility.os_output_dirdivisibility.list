@@ -1,0 +1,114 @@
+//GROUP ID 69
+//DHARMVEER DHAR DVIVEDI [15114025]
+//SATYENDRA KUMAR BANJARE [15114064]
+//C CODE## .sfile  :- Divisibility ckeck of a number by 31
+
+GAS LISTING C:\Users\SATYEN~1.BAN\AppData\Local\Temp\ccCaiyid.s 			page 1
+
+
+   1              		.file	"divisibility.c"
+   3              		.section .rdata,"dr"
+   4              	LC0:
+   5 0000 256400   		.ascii "%d\0"
+   6              	LC1:
+   7 0003 4E756D62 		.ascii "Number is Divisible by 31\0"
+   7      65722069 
+   7      73204469 
+   7      76697369 
+   7      626C6520 
+   8              	LC2:
+   9 001d 4E756D62 		.ascii "Number is not Divisible by 31\0"
+   9      65722069 
+   9      73206E6F 
+   9      74204469 
+   9      76697369 
+  10 003b 00       		.text
+  11              		.globl	_main
+  13              	_main:
+  14 0000 55       		pushl	%ebp
+  15 0001 89E5     		movl	%esp, %ebp
+  16 0003 83E4F0   		andl	$-16, %esp
+  17 0006 83EC20   		subl	$32, %esp
+  18 0009 E8000000 		call	___main
+  18      00
+  19 000e 8D442418 		leal	24(%esp), %eax
+  20 0012 89442404 		movl	%eax, 4(%esp)
+  21 0016 C7042400 		movl	$LC0, (%esp)
+  21      000000
+  22 001d E8000000 		call	_scanf
+  22      00
+  23 0022 EB69     		jmp	L2
+  24              	L3:
+  25 0024 8B4C2418 		movl	24(%esp), %ecx
+  26 0028 BA676666 		movl	$1717986919, %edx
+  26      66
+  27 002d 89C8     		movl	%ecx, %eax
+  28 002f F7EA     		imull	%edx
+  29 0031 C1FA02   		sarl	$2, %edx
+  30 0034 89C8     		movl	%ecx, %eax
+  31 0036 C1F81F   		sarl	$31, %eax
+  32 0039 29C2     		subl	%eax, %edx
+  33 003b 89D0     		movl	%edx, %eax
+  34 003d 8944241C 		movl	%eax, 28(%esp)
+  35 0041 8B54241C 		movl	28(%esp), %edx
+  36 0045 89D0     		movl	%edx, %eax
+  37 0047 C1E002   		sall	$2, %eax
+  38 004a 01D0     		addl	%edx, %eax
+  39 004c 01C0     		addl	%eax, %eax
+  40 004e 29C1     		subl	%eax, %ecx
+  41 0050 89C8     		movl	%ecx, %eax
+  42 0052 8944241C 		movl	%eax, 28(%esp)
+  43 0056 8B4C2418 		movl	24(%esp), %ecx
+  44 005a BA676666 		movl	$1717986919, %edx
+  44      66
+  45 005f 89C8     		movl	%ecx, %eax
+  46 0061 F7EA     		imull	%edx
+GAS LISTING C:\Users\SATYEN~1.BAN\AppData\Local\Temp\ccCaiyid.s 			page 2
+
+
+  47 0063 C1FA02   		sarl	$2, %edx
+  48 0066 89C8     		movl	%ecx, %eax
+  49 0068 C1F81F   		sarl	$31, %eax
+  50 006b 29C2     		subl	%eax, %edx
+  51 006d 89D0     		movl	%edx, %eax
+  52 006f 89442418 		movl	%eax, 24(%esp)
+  53 0073 8B54241C 		movl	28(%esp), %edx
+  54 0077 89D0     		movl	%edx, %eax
+  55 0079 01C0     		addl	%eax, %eax
+  56 007b 01D0     		addl	%edx, %eax
+  57 007d 8944241C 		movl	%eax, 28(%esp)
+  58 0081 8B442418 		movl	24(%esp), %eax
+  59 0085 2B44241C 		subl	28(%esp), %eax
+  60 0089 89442418 		movl	%eax, 24(%esp)
+  61              	L2:
+  62 008d 8B442418 		movl	24(%esp), %eax
+  63 0091 85C0     		testl	%eax, %eax
+  64 0093 7F8F     		jg	L3
+  65 0095 8B442418 		movl	24(%esp), %eax
+  66 0099 85C0     		testl	%eax, %eax
+  67 009b 750E     		jne	L4
+  68 009d C7042403 		movl	$LC1, (%esp)
+  68      000000
+  69 00a4 E8000000 		call	_printf
+  69      00
+  70 00a9 EB0C     		jmp	L5
+  71              	L4:
+  72 00ab C704241D 		movl	$LC2, (%esp)
+  72      000000
+  73 00b2 E8000000 		call	_printf
+  73      00
+  74              	L5:
+  75 00b7 C9       		leave
+  76 00b8 C3       		ret
+  77              		.ident	"GCC: (tdm-1) 4.9.2"
+GAS LISTING C:\Users\SATYEN~1.BAN\AppData\Local\Temp\ccCaiyid.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 divisibility.c
+C:\Users\SATYEN~1.BAN\AppData\Local\Temp\ccCaiyid.s:13     .text:00000000 _main
+
+UNDEFINED SYMBOLS
+___main
+_scanf
+_printf
